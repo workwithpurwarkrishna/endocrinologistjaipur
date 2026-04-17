@@ -1,0 +1,52 @@
+---
+layout: base.njk
+title: "Health Blog | Dr. Naincy Purwar – Endocrinologist Jaipur"
+description: "Evidence-based articles on Diabetes, Thyroid, PCOS, Obesity & Hormonal Health by Dr. Naincy Purwar, DM Endocrinology, Jaipur."
+permalink: /blog/
+---
+
+<div class="blog-page">
+  <div style="background:linear-gradient(135deg, #0F4C81 0%, #062D52 100%); color:#fff; padding:clamp(3rem,6vw,5rem) 0;">
+    <div class="container--default">
+      <p style="font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.5);margin-bottom:0.6rem;">Health Resources</p>
+      <h1 style="font-size:var(--text-xl);font-weight:700;color:#fff;margin-bottom:0.75rem;">From Dr. Purwar's Desk</h1>
+      <p style="font-size:var(--text-base);color:rgba(255,255,255,0.75);max-width:52ch;line-height:1.7;">Evidence-based articles on endocrine health — written to help you understand your condition and make informed decisions.</p>
+    </div>
+  </div>
+
+  <div class="container--default" style="padding-block:clamp(3rem,6vw,5rem);">
+    {% set allPosts = collections.posts %}
+    {% if allPosts.length %}
+    <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:2rem;">{{ allPosts.length }} article{{ 's' if allPosts.length != 1 else '' }}</p>
+    <div class="blog-page__grid">
+      {% for post in allPosts %}
+      <a href="{{ post.url }}" class="blog-card reveal">
+        {% if post.data.cover %}
+        <img src="{{ post.data.cover }}" alt="{{ post.data.title }}" class="blog-card__img" width="400" height="225" loading="lazy" />
+        {% else %}
+        <div class="blog-card__img-placeholder" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        {% endif %}
+        <div class="blog-card__body">
+          {% if post.data.category %}<div class="blog-card__category">{{ post.data.category }}</div>{% endif %}
+          <div class="blog-card__title">{{ post.data.title }}</div>
+          {% if post.data.summary %}
+          <div class="blog-card__excerpt">{{ post.data.summary }}</div>
+          {% else %}
+          <div class="blog-card__excerpt">{{ post.templateContent | excerpt }}</div>
+          {% endif %}
+          <div class="blog-card__meta">{{ post.date | dateDisplay }}</div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="blog-empty">
+      <div class="blog-empty__title">Articles Coming Soon</div>
+      <p class="blog-empty__sub">Dr. Purwar will be sharing expert insights on Diabetes, Thyroid, PCOS, and hormonal health. Check back soon!</p>
+      <a href="/" class="btn btn--ghost" style="margin-top:1.5rem;">← Back to Home</a>
+    </div>
+    {% endif %}
+  </div>
+</div>

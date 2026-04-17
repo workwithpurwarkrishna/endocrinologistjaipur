@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <title>{{ title or site.title }}</title>
+  {% include "head.njk" %}
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+{% include "nav.njk" %}
+
+<main id="main">
+  {{ content | safe }}
+</main>
+
+{% include "footer.njk" %}
+
+<script src="/assets/js/main.js"></script>
+
+<!-- Netlify Identity redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+      }
+    });
+  }
+</script>
+</body>
+</html>

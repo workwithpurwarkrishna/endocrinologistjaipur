@@ -1,0 +1,59 @@
+---
+layout: base.njk
+ogType: article
+---
+{% set postJsonLd %}
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ title }}",
+  "description": "{{ summary or excerpt }}",
+  "datePublished": "{{ date | dateISO }}",
+  "dateModified": "{{ date | dateISO }}",
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Naincy Purwar",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dr. Naincy Purwar – Endocrinologist Jaipur",
+    "url": "{{ site.url }}"
+  }{% if cover %},
+  "image": "{{ site.url }}{{ cover }}"{% endif %}
+}
+{% endset %}
+
+<article class="post-page">
+  <div class="post-page__hero {% if cover %}post-page__hero--has-cover{% endif %}">
+    {% if cover %}
+    <img src="{{ cover }}" alt="{{ title }}" class="post-page__cover" width="1200" height="630" />
+    {% endif %}
+    <div class="container--default">
+      <div class="post-page__meta">
+        <span class="post-page__category">{{ category }}</span>
+        <span class="post-page__date">{{ date | dateDisplay }}</span>
+      </div>
+      <h1 class="post-page__title">{{ title }}</h1>
+      {% if summary %}<p class="post-page__summary">{{ summary }}</p>{% endif %}
+      <div class="post-page__author">
+        <div class="post-page__author-avatar" aria-hidden="true">NP</div>
+        <div>
+          <div class="post-page__author-name">Dr. Naincy Purwar</div>
+          <div class="post-page__author-cred">MBBS · MD · DM Endocrinology</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container--narrow post-page__body">
+    {{ content | safe }}
+
+    <div class="post-page__cta-box">
+      <p>Have questions about your health? Book a consultation with Dr. Purwar.</p>
+      <a href="/#book" class="btn btn--accent">Book Consultation</a>
+    </div>
+  </div>
+</article>
+
+<script type="application/ld+json">{{ postJsonLd | safe }}</script>

@@ -1,0 +1,40 @@
+{
+  "name": "Dr. Naincy Purwar",
+  "title": "Best Endocrinologist in Jaipur | Dr. Naincy Purwar",
+  "description": "Dr. Naincy Purwar – Senior Consultant Endocrinologist & Diabetologist in Jaipur. Expert in Diabetes, Thyroid, PCOS, Obesity & Hormonal Disorders. Book online consultation.",
+  "url": "https://endocrinologistjaipur.com",
+  "author": "Dr. Naincy Purwar",
+  "credentials": "MBBS · MD (Gold Medalist) · DM Endocrinology",
+  "phone": "+917297080208",
+  "phoneDisplay": "+91 72970 80208",
+  "whatsapp": "917297080208",
+  "email": "contact@endocrinologistjaipur.com",
+  "calendly": "https://calendly.com/workwithpurwarkrishna/30min",
+  "instagram": "https://www.instagram.com/hormonesandhealth_/",
+  "instagramHandle": "@hormonesandhealth_",
+  "regNo": "RJ/23535",
+  "experience": "10+",
+  "satisfaction": "96%",
+  "hospitals": "3",
+  "teleConsultFee": "₹700",
+  "clinics": [
+    {
+      "name": "Udaayan Multispecialty Clinic",
+      "address": "D-232, Anand Vihar, Vidhyadhar Nagar, Jagatpura",
+      "city": "Jaipur – 302017",
+      "hours": "Mon–Sat · 6 PM – 9 PM"
+    },
+    {
+      "name": "Bombay Hospital",
+      "address": "Sitapura",
+      "city": "Jaipur",
+      "hours": "Call for OPD timings"
+    },
+    {
+      "name": "Rukmani Birla Hospital",
+      "address": "",
+      "city": "Jaipur",
+      "hours": "Call for OPD timings"
+    }
+  ]
+}
